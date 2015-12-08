@@ -1,3 +1,4 @@
+
 /* Bewertung-Klasse 
  * Repraesentiert eine ausgefuellte Befragung
  */

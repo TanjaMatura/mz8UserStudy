@@ -89,6 +89,51 @@ public class AdminDAO{
 			System.out.println(userE.getMessage());
 		}
 	}
+	
+	//updatet dne Admin (funktioniert eigentlihc nur mit passwort
+		public void updateAdmin(Admin user){
+			try{
+				//zuerst schauen wir ob es dne user schon gibt
+				File file=new File(pfad);
+				if(file.exists()){
+					ObjectInputStream ois=new ObjectInputStream(new FileInputStream(pfad));
+					ArrayList<Admin> userListIn=(ArrayList<Admin>)ois.readObject();
+					ois.close();
+					
+					int abbruchVariable=0;
+					int position=0;
+					for(int i=0;i<userListIn.size();i++){
+						String username1=(userListIn.get(i)).getUsername();
+						String username2=user.getUsername();
+						if(username1.equals(username2)){ //found you!
+							abbruchVariable=1;
+							position =i;
+							userListIn.set(position, user);
+							break;
+						}
+					}
+					//wenn wir den user nicht finden haben wir n problem	
+					if(abbruchVariable==0){
+						throw new IllegalArgumentException("User existiert nicht!");
+					}
+					if(abbruchVariable==1){ //wir haben was gefundne und speichern
+						ObjectOutputStream oos=new ObjectOutputStream(new FileOutputStream(pfad));
+						oos.writeObject(userListIn);
+						oos.close();
+					}
+					
+				}
+				else{
+					//wenn die file nicht existiert weinen wir in einer ecke
+					throw new IllegalArgumentException("File existiert nicht!");
+				}
+			}
+			catch(IOException e){}
+			catch(ClassNotFoundException e){}
+			catch(IllegalArgumentException userE){
+				System.out.println(userE.getMessage());
+			}
+		}
 
 	//löschte einen Admin (falls wir das bruachen is es da)
 	public void deleteAdmin(Admin user){

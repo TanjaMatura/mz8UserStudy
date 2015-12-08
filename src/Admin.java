@@ -1,5 +1,4 @@
 
-import java.util.ArrayList;
 
 /* Admin Klasse... Wir rbauchen eigentlihc nur username, password, 
  * statistik methoden, datenbank manipulation
@@ -13,7 +12,7 @@ public class Admin {
 	
 	/* ------------ Konstruktor  ------------ */
 	
-	public Admin(String url, String name){
+	public Admin(String username, String password){
 		this.username = username; 
 		this.password = password; 
 		
@@ -39,12 +38,16 @@ public class Admin {
 	/* ------------ Komplexere Methoden ------------ */
 	
 	/*------------- Datenbankmanipulation ------------- */
-	public void addVideo(){
+	public void addVideo(Video video){
 		
 		//Datenbank relevanter Code
+		VideoDAO vDAO = new VideoDAO("\\video");
+		vDAO.saveVideo(video);
 	}
-	public void removeVideo(){
+	public void removeVideo(Video video){
 		//Datenbank relevanter Code
+		VideoDAO vDAO = new VideoDAO("\\video");
+		vDAO.deleteVideo(video);
 	}
 	
 	

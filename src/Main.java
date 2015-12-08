@@ -1,5 +1,3 @@
-package mz8UserStudy;
-
 // Main, um die Methoden zu testen
 
 public class Main {

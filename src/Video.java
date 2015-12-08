@@ -1,4 +1,3 @@
-package mz8UserStudy;
 
 import java.util.ArrayList;
 

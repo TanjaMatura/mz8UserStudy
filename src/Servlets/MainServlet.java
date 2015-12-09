@@ -48,7 +48,11 @@ public class MainServlet extends HttpServlet {
 			dispatcher.forward( request, response );*/
 			request.getRequestDispatcher("/mz8UserStudy/WebContent/jsp/index.jsp").include(request, response);
 		}
-		
+		if(action!=null&&action.equalsIgnoreCase("index"))
+		{
+			System.out.println("hi");
+			request.getRequestDispatcher("../jsp/index.jsp");
+		}
 		response.setContentType("text/html");		
 	}
 

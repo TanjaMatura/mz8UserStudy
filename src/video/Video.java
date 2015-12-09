@@ -11,6 +11,9 @@ import java.util.ArrayList;
 public class Video {
 	private String url; 
 	private String name; 
+	//private String marke; 
+	//private boolean promis; 
+	//private int sekunden; 
 	private int anzahlBewertungen; 
 	private int angeboten; 
 	private int ausgewaehlt; 

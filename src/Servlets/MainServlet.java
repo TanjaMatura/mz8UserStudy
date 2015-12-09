@@ -1,16 +1,14 @@
 package Servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import video.Video;
-import video.VideoDAO;
 
 /**
  * Servlet implementation class MainServlet
@@ -23,47 +21,35 @@ public class MainServlet extends HttpServlet {
      * Default constructor. 
      */
     public MainServlet() {
-        // TODO Auto-generated constructor stub
+    
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		String action = request.getParameter("action");		
+		handleRequest(request, response, action);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
+		String action = request.getParameter("action");		
+		 System.out.println("hi");
+		handleRequest(request, response, action);
+	}
+	
+	private void handleRequest(HttpServletRequest request, HttpServletResponse response, String action) throws ServletException, IOException
+	{
+		if(action != null && action.equalsIgnoreCase("bewertung")){
+			/*RequestDispatcher dispatcher=getServletContext().getRequestDispatcher( "/mz8UserStudy/WebContent/jsp/index.jsp" );
+			dispatcher.forward( request, response );*/
+			request.getRequestDispatcher("/mz8UserStudy/WebContent/jsp/index.jsp").include(request, response);
+		}
 		
-		String param = request.getParameter("radios");
-	    
-		if(param != null) {
-            if(param.equals("radio1")) {
-                out.println("Radio button 1 was selected.");
-            }
-            else {
-            	out.println("Radio button 1 was not selected.");
-            }
-            if(param.equals("radio2")) {
-            	out.println("Radio button 2 was selected.");
-            }
-            else {
-            	out.println("Radio button 2 was not selected.");
-            }
-            if(param.equals("radio3")) {
-            	out.println("Radio button 3 was selected.");
-            }
-            else {
-            	out.println("Radio button 3 was not selected.");
-            }
-        }
-		
-    
+		response.setContentType("text/html");		
 	}
 
 }

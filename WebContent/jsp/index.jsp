@@ -5,8 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>User Study</title>
+<link href="..\bootstrap-3.3.6-dist\css\bootstrap.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+
+<a class="btn btn-default" href="bewertung.jsp" role="button">Button</a><br>
+Datum: 
+<%= new java.util.Date() %><br>
 
 </body>
 </html>

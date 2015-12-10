@@ -1,0 +1,15 @@
+Fragen:
+
+Ist die Werbung eine KLassische Werbung?
+
+Beispiele und/oder Erklärungen mit einem (?) bringen
+
+Ist die Werbung visuell/inhaltlich/storyline/auditiv ansprechend?
+
+Angabe der Qualität in Abstufungen
+
+allgemeines Kommentarfeld einfügen
+
+Datenbank in Tabellenform (bsp. video_id --> Bewertung)
+
+defaults setz7en (keine angabe)
